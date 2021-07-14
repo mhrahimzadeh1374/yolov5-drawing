@@ -15,10 +15,10 @@ val: test.txt  # 5000 images
 test: test.txt  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
 
 # number of classes
-nc: 2
+nc: 1
 
 # class names
-names: [ '0','1' ]
+names: ['0']
 
 # Print classes
 # with open('data/coco.yaml') as f:
