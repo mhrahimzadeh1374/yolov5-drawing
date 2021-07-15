@@ -16,8 +16,8 @@ from utils.torch_utils import select_device, load_classifier, time_synchronized
 import tensorflow as tf
 
 def detect(save_img=False):
-    
-    classifier_model=tf.keras.models.load_model(opt.classifier_model)
+    print(opt.classifier_model)
+    classifier_model=tf.keras.models.load_model(opt.classifier_model[0])
     
     source, weights, view_img, save_txt, imgsz = opt.source, opt.weights, opt.view_img, opt.save_txt, opt.img_size
     webcam = source.isnumeric() or source.endswith('.txt') or source.lower().startswith(
@@ -155,7 +155,7 @@ def detect(save_img=False):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--weights', nargs='+', type=str, default='yolov5s.pt', help='model.pt path(s)')
-    parser.add_argument('--classifier-model', nargs='+', type=str, default='our_classifier.hdf5', help='model.hdf5 path(s)')
+    parser.add_argument('--classifier_model', nargs='+', type=str, default='our_classifier.hdf5', help='model.hdf5 path(s)')
     
     parser.add_argument('--source', type=str, default='data/images', help='source')  # file/folder, 0 for webcam
     parser.add_argument('--img-size', type=int, default=640, help='inference size (pixels)')
